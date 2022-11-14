@@ -1,48 +1,54 @@
 <?php
+
 class Etudiant
 {
-    //les attribute
-    public $nom;
-    public $age;
+    // les attributs
+    private $nom;
+    private $age;
 
-
-    // les methods
-    //les getter
+    //les méthodes
+    //les getters
     public function getNom()
     {
         return $this->nom;
     }
+
     public function getAge()
     {
         return $this->age;
     }
-
-    //les getter
+     // les setters
     public function setNom($nom)
     {
-        $this->nom= $nom;
-    }
-    public function setAge($age)
-    {
-        $this->age = $age;
+        $this->nom = $nom;
     }
 
-    public function infoEtudiant(){
-        return "Nom : ".$this->nom." Age : ".$this->age;
+    public function setAge($age)
+    {
+        if ($age>18) {
+            $this->age = $age;
+        } else {
+            echo "Valeur de l age invalide!";
+        }
+    }
+
+    public function infoEtudiant()
+    {
+        return "Nom : ".$this->nom ." Age : ".$this->age;
     }
 }
 
 
-$el = new Etudiant();
-$el->setNom("Amin");
-$el->setAge(42);
+$e1 = new Etudiant();
 
-
-$el2 = new Etudiant();
-$el2->setNom("Moti");
-$el2->setAge(41);
-
-echo $el->infoEtudiant()."<br>";
-
-echo $el2->infoEtudiant();
-?>
+$e1->setNom("Amine");
+$e1->setAge(-20);
+/*
+$e2 = new Etudiant();
+$e2->setNom("Alain");
+$e2->setAge(22);
+*/
+echo $e1->infoEtudiant();
+/*
+echo"<br/>";
+echo $e2->infoEtudiant();*/
