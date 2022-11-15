@@ -5,6 +5,16 @@ class Etudiant
     // les attributs
     private $nom;
     private $age;
+    public static $nbMax =20;
+    public static $nbEtudiant;
+
+    public function __construct(){
+        self::$nbEtudiant++;
+    }
+
+    public static function getNbMax(){
+        return self::$nbMax;
+    }
 
     //les méthodes
     //les getters
@@ -22,6 +32,7 @@ class Etudiant
     {
         $this->nom = $nom;
     }
+
 
     public function setAge($age)
     {
@@ -43,12 +54,20 @@ $e1 = new Etudiant();
 
 $e1->setNom("Amine");
 $e1->setAge(-20);
-/*
+echo "<br/>Nbre actuel etudiants : ".Etudiant::$nbEtudiant;
+
+
 $e2 = new Etudiant();
 $e2->setNom("Alain");
 $e2->setAge(22);
-*/
-echo $e1->infoEtudiant();
+
+echo $e2->infoEtudiant()."<b>";
+
+
+echo "<br/> Nbre actuel etudiants : ".Etudiant::$nbEtudiant;
+
+echo "<br/> Nbre actuel etudiants : ".Etudiant::getNbMax();
+
 /*
 echo"<br/>";
 echo $e2->infoEtudiant();*/
